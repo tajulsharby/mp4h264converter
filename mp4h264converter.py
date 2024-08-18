@@ -64,6 +64,9 @@ def convert_to_h264(input_file, output_file):
         
         # Check if the conversion was successful
         if process.returncode == 0:
+            # Ensure the progress is marked as 100% at the end
+            print(f"Progress: 100.00% completed", end='\r')
+
             file_size = os.path.getsize(output_file)
             successful_conversions.append((output_file, file_size))
             logging.info(f'Successfully converted: {input_file} -> {output_file}')
